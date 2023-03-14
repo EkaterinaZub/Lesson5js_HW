@@ -199,38 +199,38 @@
     let whitespace = height-1;
 
     function drawTriangle(height) {
-       
+
         for (let i=1;i<=height; i++){
-          let symbol = " ".repeat(whitespace)  
+          let symbol = " ".repeat(whitespace) ; 
           whitespace--
           console.log(`${symbol}${string.join(``)}${symbol}`);
           string.push(`**`)
         }
-        
+
     }
     drawTriangle(height);
-    
+
 }
 
-    // let height = 6
-    // let string = ""
-    // function drawTriangle(height) {
-    //     for (let i = 1; i <= height; i++) {
-    //         string += "*"
-    //         console.log(string)
-    //         let space = " "
-    //         for (let j = height; j >= i - 1; j--) {
-    //             space += space
-    //             console.log(space)
+// let height = 6
+// let string = ""
+// function drawTriangle(height) {
+//     for (let i = 1; i <= height; i++) {
+//         string += "*"
+//         console.log(string)
+//         let space = " "
+//         for (let j = height; j >= i - 1; j--) {
+//             space += space
+//             console.log(space)
 
-    //         }
-    //         //   console.log(string)
+//         }
+//         //   console.log(string)
 
 
 
-    //     }
-    // }
-    // drawTriangle(height)
+//     }
+// }
+// drawTriangle(height)
 
 
 
@@ -252,7 +252,10 @@
     }
     let result = generateFibonacci(1000);
     console.log(result);
+
+   
 }
+
 
 // Task 10
 // Дано число. Сложите его цифры. Если сумма получилась более 9-ти,
@@ -263,7 +266,7 @@
         a = String(a)
         let sum = 0;
         for (let i = 0; i < a.length; i++) {
-           
+
             let digit = Number(a[i]);
             sum += digit;
         }
@@ -285,38 +288,37 @@
 // последовательно его элементы, используя рекурсию и не используя цикл.
 
 {
-    let arr=[2,4,6,8,0,46,87,987];
+    // let arr = [2, 4, 6, 8, 0, 46, 87, 987];
 
-    function printNumber (arr){
-        
-        arr[i++]
-        if (arr[i]<=arr.length){
-           
-            return printNumber (arr)
-            
-        } else {
-            return arr
-        }
-        
-    }
+    // function printNumber(arr) {
+    //     arr[i++];
+    //     if (arr[i] <= arr.length) {
 
-    printNumber (arr)
-    console.log(printNumber (arr))
+    //         return printNumber(arr);
 
+    //     } else {
+    //         return arr;
+    //     }
 
-   
+    // }
+
+    // printNumber(arr);
+    // console.log(printNumber(arr));
+
 }
-// С помощью цикла
-{ 
-    let arr=[2,4,6,8,0,46];
 
-    function printNumber (arr){
-       for (i=0; i<arr.length; i++)
-       console.log(arr[i])
+// С помощью цикла
+{
+    let arr = [2, 4, 6, 8, 0, 46];
+
+    function printNumber(arr) {
+        for (i = 0; i < arr.length; i++) {
+            console.log(arr[i])
+        }
     }
 
-    printNumber (arr)
-       
+    printNumber(arr)
+console.log(arr)
 }
 
 // Task 12
@@ -333,57 +335,52 @@
 // Рамку вывести в консоль.
 
 {
+        let name = prompt("Введите Ваше имя");
+        let surname = prompt("Введите Вашу фамилию");
+        let surname2 = prompt("Введите Ваше отчество");
+        let group = prompt("Введите № Вашей группы");
 
 
-    function topBottomRamka(length){
-        var ramka = "";
-        for (var i=0; i<length; i++){
-            ramka += "*";
+        function getLongString(arr){
+            let longString = 0;
+            for (let value of arr){
+                if (value.length > longString){
+                    longString = value.length;
+                }
+
+            }
+            return longString;
         }
-        console.log(ramka);
+
+        function createData(arr, longString) {
+            for (let i=0; i< arr.length; i++){
+                const countRepeat = longString -arr[i].length;
+
+                arr[i]= `* ${arr[i]}${` `.repeat(countRepeat)} *`
+            }
+            arr.push(`*`.repeat(longString + 4))
+            arr.unshift(`*`.repeat(longString +4))
+        }
+
+
+
+
+    function displayInformation (name, surname, surname2, group){
+
+        let arr = [` Домашняя работа: "функции" `, ` Выпонил: студент гр. ${group} `, ` ${surname} ${name} ${surname2} `];
+        let longString = getLongString(arr);
+        createData(arr, longString);
+
+        for (let value of arr){
+            console.log(value)
+        }
+
+
+
     }
 
+    displayInformation (name, surname, surname2, group)
 
-    let name = prompt("Введите Ваше имя");
-    let surname = prompt("Введите Вашу фамилию");
-    let surname2 = prompt("Введите Ваше отчество");
-    let group = prompt("Введите № Вашей группы");
-    
-
-function displayInformation (name, surname, surname2, group){
-    topBottomRamka(15)
-
-    console.log(`* Домашняя работа: "функции" *`);
-    console.log(`* Выпонил: студент гр. ${group} *`);
-    console.log(`* ${surname} ${name} ${surname2} *`);
-
-    topBottomRamka(15)
-
-}
-
-displayInformation (name, surname, surname2, group)
-
-// function showInformation (name, surname, surname2, group){
-//     topBottomRamka(15)
-
-//     let arr = [`* Домашняя работа: "функции" *`, `* Выпонил: студент гр. ${group} *`, `* ${surname} ${name} ${surname2} *` ];
-    
-//     let longString =0;
-//     for (let value of arr)
-
-//     topBottomRamka(15)
-
-// }
-
-
-
-// function topBottomRamka(length){
-//     var ramka = "";
-//     for (var i=0; i<length; i++){
-//         ramka += "*";
-//     }
-//     console.log(ramka);
-// }
 
 }
 
@@ -405,7 +402,7 @@ displayInformation (name, surname, surname2, group)
 
 {
 
-   
+
 }
 
 
